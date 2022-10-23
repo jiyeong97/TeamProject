@@ -8,14 +8,14 @@
 .menu{
     display: flex;
     justify-content: center;
-    height: 40px;
+    height: 50px;
     background-color: rgb(76, 76, 167);
 }
 .majormenu{
     font-size: 20px;
     text-align: center;
     width: 200px;
-    line-height: 40px;
+    line-height: 50px;
     color:white;
 }
 .programDiv{
@@ -42,7 +42,7 @@
     zoom:1.2;
 }
 .SearchDiv{
-    height: 40px;
+    height: 50px;
     background-color: rgb(165, 165, 211);
     display: flex;
     justify-content: center;
@@ -50,12 +50,12 @@
 .courseName{
     margin: 0;
     text-align: center;
-    line-height: 40px;
+    line-height: 50px;
     font-size: 18px;
 }
 #searchbtn{
     height: 30px;
-    margin-top: 5px;
+    margin-top: 10px;
     background-color: rgb(76, 76, 167);
     border: none;
     width: 180px;
@@ -75,7 +75,7 @@
     padding-top: 10px;
     width: 350px;
     background-color: rgb(93, 93, 168);
-    height: 100vh;
+    height: 120vh;
     display: flex;
     flex-direction: column;
 }
@@ -91,4 +91,50 @@
 }
 .termbtn:focus{
     background-color: rgb(64, 64, 134);
+}
+.courseDetailDiv1{
+    display: flex;
+    flex-direction: column;
+    padding:7%;
+    padding-top: 40px;
+}
+.courseDetailDiv2{
+    width:100vh;
+    height: 250px;
+    box-shadow: 7px 7px 20px #888888;
+    margin-bottom: 80px;
+}
+.courseDetailName{
+    font-size: 25px;
+    background-color: rgb(76, 76, 167);
+    color:white;
+    height: 40px;
+    padding-left: 20px;
+    line-height: 40px;
+}
+.courseDetailDiv3{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 40px;
+    font-size: 20px;
+}
+.courseDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.registerbtn{
+    height: 30px;
+    margin-top: 10px;
+    background-color: rgb(76, 76, 167);
+    border: none;
+    width: 180px;
+    color:white;
+    font-size: 18px;
+    border-radius: 0.3em;
+    box-shadow: 3px 2px 5px #888888;
+}
+.registerbtn:hover{
+    background-color: rgb(120, 120, 180);
 }
