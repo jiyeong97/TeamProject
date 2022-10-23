@@ -35,8 +35,13 @@ const registration = () => {
                 {/* <input type="text" id="search" name="search">Enter the course name</input> */}
                 <button type="button" id="searchbtn">Search</button>
             </div>
-            <div>
-                <div></div>
+            <div className='courselistDiv'>
+                <div className='termDiv'>
+                    <button type="button" id="term1" className='termbtn'>Term1</button>
+                    <button type="button" id="term2" className='termbtn'>Term2</button>
+                    <button type="button" id="term3" className='termbtn'>Term3</button>
+                    <button type="button" id="term4" className='termbtn'>Term4</button>
+                </div>
                 <div></div>
             </div>
         </div>

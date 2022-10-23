@@ -64,7 +64,31 @@
     border-radius: 0.3em;
     box-shadow: 3px 2px 5px #888888;
 }
-
 #searchbtn:hover{
     background-color: rgb(120, 120, 180);
+}
+.courselistDiv{
+    display: flex;
+    flex-direction: row;
+}
+.termDiv{
+    padding-top: 10px;
+    width: 350px;
+    background-color: rgb(93, 93, 168);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.termbtn{
+    font-size: 25px;
+    height: 70px;
+    border: none;
+    background-color: rgb(93, 93, 168);
+    color: white;
+}
+.termbtn:hover{
+    background-color: rgb(64, 64, 134);
+}
+.termbtn:focus{
+    background-color: rgb(64, 64, 134);
 }
