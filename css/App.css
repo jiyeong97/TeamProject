@@ -17,6 +17,25 @@
     width: 200px;
     line-height: 50px;
     color:white;
+    background-color: rgb(76, 76, 167);
+    border:none;
+}
+.majormenu:hover{
+    background-color: rgb(43, 43, 128);
+}
+.majormenu:focus{
+    background-color: rgb(43, 43, 128);
+}
+.mycoursemenu{
+    font-size: 20px;
+    text-align: center;
+    width: 200px;
+    line-height: 50px;
+    color:white;
+    text-decoration: none;
+}
+.mycoursemenu:hover{
+    background-color: rgb(43, 43, 128);
 }
 .programDiv{
     background-color: rgb(202, 202, 233);
@@ -24,6 +43,13 @@
     flex-direction: column;
     justify-content: center;
     height: 150px;
+}
+.programDiv2{
+    background-color: rgb(202, 202, 233);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60px;
 }
 .program{
     font-size: 20px;
@@ -125,8 +151,8 @@
     align-items: center;
 }
 .registerbtn{
-    height: 30px;
-    margin-top: 10px;
+    height: 40px;
+    margin-top: 20px;
     background-color: rgb(76, 76, 167);
     border: none;
     width: 180px;
@@ -136,5 +162,19 @@
     box-shadow: 3px 2px 5px #888888;
 }
 .registerbtn:hover{
+    background-color: rgb(120, 120, 180);
+}
+.deletebtn{
+    height: 40px;
+    margin-top: 20px;
+    background-color: rgb(76, 76, 167);
+    border: none;
+    width: 180px;
+    color:white;
+    font-size: 18px;
+    border-radius: 0.3em;
+    box-shadow: 3px 2px 5px #888888;
+}
+.deletebtn:hover{
     background-color: rgb(120, 120, 180);
 }

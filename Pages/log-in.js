@@ -5,7 +5,7 @@ const logIn = () => {
         <div>
             
         </div>
-    )
+    );
 }
 
 export default logIn;

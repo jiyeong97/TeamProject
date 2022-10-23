@@ -3,39 +3,21 @@ import '../css/App.css';
 
 import { Link } from "react-router-dom";
 
-const registration = () => {
-    return (
+const mycourse = () => {
+    return(
         <div>
             <div className='title'>
                 <h1>BVC Course Registration</h1>
             </div>
             <div className='menu'>
+                <Link to="/registration" className='mycoursemenu'>Home</Link>
                 <button type="button" className='majormenu'>Diploma</button>
                 <button type="button"  className='majormenu'>Post Diploma</button>
                 <button type="button"  className='majormenu'>Certificate</button>
                 <button type="button"  className='majormenu'>Upgrade</button>
-                <Link to="/mycourse" className='mycoursemenu'>My Course</Link>
             </div>
-            <div className='programDiv'>
-                <div className='program'>Programs</div>
-                <div className='programCheck'>
-                    <form>
-                        <input type="checkbox" id="SotwareDevelopment" className='checkLabel'/>
-                        <label>Software Development</label>
-                        <input type="checkbox" id="InformationTechnologySystem" className='checkLabel'/>
-                        <label>Information Technology System</label>
-                        <input type="checkbox" id="InteriorDecorating" className='checkLabel'/>
-                        <label>Interior Decorating</label>
-                        <input type="checkbox" id="DigitalDesign" className='checkLabel'/>
-                        <label>Digital Design</label>
-                    </form>
-                    
-                </div>
-            </div>
-            <div className='SearchDiv'>
-                <p className='courseName'>Course Name : </p>
-                {/* <input type="text" id="search" name="search">Enter the course name</input> */}
-                <button type="button" id="searchbtn">Search</button>
+            <div className='programDiv2'>
+                <div className='program'>Software Development</div>
             </div>
             <div className='courselistDiv'>
                 <div className='termDiv'>
@@ -59,7 +41,7 @@ const registration = () => {
                                 <div>Course Schedule</div>
                                 <div>Tuesday : 9:30AM ~ 11:00AM</div>
                                 <div>Thursday : 9:30AM ~ 11:00AM</div>
-                                <button type="button" id="register" className='registerbtn'>Register</button>
+                                <button type="button" id="delete" className='deletebtn'>Delete</button>
                             </div>
                         </div>
                     </div>
@@ -77,25 +59,7 @@ const registration = () => {
                                 <div>Course Schedule</div>
                                 <div>Monday : 12:30PM ~ 02:00PM</div>
                                 <div>Wednesday : 12:30PM ~ 02:00PM</div>
-                                <button type="button" id="register" className='registerbtn'>Register</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='courseDetailDiv2'>
-                        <div className='courseDetailName'>TECH1102 - Internet of Things</div>
-                        <div className='courseDetailDiv3'>
-                            <div>
-                                <div>Start Date : January 10,2023</div>
-                                <div>End Date : April 28, 2023</div>
-                                <div>Delivery Mode : In Class</div>
-                                <div>Seats Available : 40</div>
-                                <div>Tuition : $1857.00</div>
-                            </div>
-                            <div className='courseDetails'>
-                                <div>Course Schedule</div>
-                                <div>Monday : 9:30AM ~ 11:00AM</div>
-                                <div>Wednesday : 9:30AM ~ 11:00AM</div>
-                                <button type="button" id="register" className='registerbtn'>Register</button>
+                                <button type="button" id="delete" className='deletebtn'>Delete</button>
                             </div>
                         </div>
                     </div>
@@ -105,4 +69,4 @@ const registration = () => {
     );
 }
 
-export default registration;
+export default mycourse;

@@ -3,6 +3,7 @@ import { BrowserRouter,Routes ,Route } from 'react-router-dom';
 
 import LogIn from './Pages/log-in';
 import Registration from './Pages/registration';
+import MyCourse from './Pages/mycourse';
 
 class App extends Component{
     render(){
@@ -12,6 +13,7 @@ class App extends Component{
                     <Routes>
                         <Route index elemet={<LogIn/>} exact/>
                         <Route path="/registration" element={<Registration />}/>
+                        <Route path="/mycourse" element={<MyCourse />}/>
                     </Routes>
                 </BrowserRouter>
             </>
