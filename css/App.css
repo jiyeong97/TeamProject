@@ -1,0 +1,70 @@
+*{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.title{
+    text-align: center;
+    font-size: 30px;  
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    background-color: rgb(76, 76, 167);
+}
+.majormenu{
+    font-size: 20px;
+    text-align: center;
+    width: 200px;
+    line-height: 40px;
+    color:white;
+}
+.programDiv{
+    background-color: rgb(202, 202, 233);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 150px;
+}
+.program{
+    font-size: 20px;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+.programCheck{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+.checkLabel{
+    margin-left: 30px;
+    zoom:1.2;
+}
+.SearchDiv{
+    height: 40px;
+    background-color: rgb(165, 165, 211);
+    display: flex;
+    justify-content: center;
+}
+.courseName{
+    margin: 0;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+}
+#searchbtn{
+    height: 30px;
+    margin-top: 5px;
+    background-color: rgb(76, 76, 167);
+    border: none;
+    width: 180px;
+    color:white;
+    font-size: 18px;
+    border-radius: 0.3em;
+    box-shadow: 3px 2px 5px #888888;
+}
+
+#searchbtn:hover{
+    background-color: rgb(120, 120, 180);
+}

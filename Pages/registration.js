@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/App.css'
 
 const registration = () => {
     return (
@@ -7,27 +8,36 @@ const registration = () => {
                 <h1>BVC Course Registration</h1>
             </div>
             <div className='menu'>
-                {/* <Link className='diplomaMenu'>Diploma</Link>
-                <Link className='postDiplomalMenu'>Post Diploma</Link>
-                <Link className='certificateMenu'>Certificate</Link>
-                <Link className='upgradeMenu'>Upgrade</Link>
-                <Link className='myCourseMenu'>My Course</Link> */}
+                <div className='majormenu'>Diploma</div>
+                <div className='majormenu'>Post Diploma</div>
+                <div className='majormenu'>Certificate</div>
+                <div className='majormenu'>Upgrade</div>
+                <div className='majormenu'>My Course</div>
             </div>
             <div className='programDiv'>
-                <div>Programs</div>
+                <div className='program'>Programs</div>
                 <div className='programCheck'>
                     <form>
-                        <input type="checkbox" id="SotwareDevelopment"/>
-                        <label for="SotwareDevelopment">Software Development</label>
-                        <input type="checkbox" id="InformationTechnologySystem"/>
-                        <label for="InformationTechnologySystem">Information Technology System</label>
-                        <input type="checkbox" id="InteriorDecorating"/>
-                        <label for="InteriorDecorating">Interior Decorating</label>
-                        <input type="checkbox" id="DigitalDesign"/>
-                        <label for="DigitalDesign">Digital Design</label>
+                        <input type="checkbox" id="SotwareDevelopment" className='checkLabel'/>
+                        <label>Software Development</label>
+                        <input type="checkbox" id="InformationTechnologySystem" className='checkLabel'/>
+                        <label>Information Technology System</label>
+                        <input type="checkbox" id="InteriorDecorating" className='checkLabel'/>
+                        <label>Interior Decorating</label>
+                        <input type="checkbox" id="DigitalDesign" className='checkLabel'/>
+                        <label>Digital Design</label>
                     </form>
                     
                 </div>
+            </div>
+            <div className='SearchDiv'>
+                <p className='courseName'>Course Name : </p>
+                {/* <input type="text" id="search" name="search">Enter the course name</input> */}
+                <button type="button" id="searchbtn">Search</button>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
             </div>
         </div>
     );
