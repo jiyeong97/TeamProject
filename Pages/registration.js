@@ -1,35 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/App.css';
+import Diploma from '../Components/dimploma';
+import Postdiploma from '../Components/postdiploma';
+import Certificate from '../Components/certification';
+import Upgrade from '../Components/upgrade';
 
 import { Link } from "react-router-dom";
 
-const registration = () => {
+
+const Registration = () => {
+    const [content, setContent] = useState();
+
+    const buttonValueSetting = e => {
+        const{name} = e.target;
+        setContent(name);
+    }
+
+    const selectComponent  = {
+        Diploma : <Diploma/>,
+        Postdiploma : <Postdiploma/>,
+        Certificate : <Certificate/>,
+        Upgrade : <Upgrade/>
+    };
+
     return (
         <div>
             <div className='title'>
                 <h1>BVC Course Registration</h1>
             </div>
             <div className='menu'>
-                <button type="button" className='majormenu'>Diploma</button>
-                <button type="button"  className='majormenu'>Post Diploma</button>
-                <button type="button"  className='majormenu'>Certificate</button>
-                <button type="button"  className='majormenu'>Upgrade</button>
+                <button type="button" className='majormenu' onClick={buttonValueSetting} name='Diploma' key={Diploma}>Diploma</button>
+                <button type="button"  className='majormenu'onClick={buttonValueSetting} name='Postdiploma' key={Diploma}>Post Diploma</button>
+                <button type="button"  className='majormenu'onClick={buttonValueSetting} name='Certificate' key={Diploma}>Certificate</button>
+                <button type="button"  className='majormenu'onClick={buttonValueSetting} name='Upgrade' key={Diploma}>Upgrade</button>
                 <Link to="/mycourse" className='mycoursemenu'>My Course</Link>
             </div>
             <div className='programDiv'>
                 <div className='program'>Programs</div>
-                <div className='programCheck'>
-                    <form>
-                        <input type="checkbox" id="SotwareDevelopment" className='checkLabel'/>
-                        <label>Software Development</label>
-                        <input type="checkbox" id="InformationTechnologySystem" className='checkLabel'/>
-                        <label>Information Technology System</label>
-                        <input type="checkbox" id="InteriorDecorating" className='checkLabel'/>
-                        <label>Interior Decorating</label>
-                        <input type="checkbox" id="DigitalDesign" className='checkLabel'/>
-                        <label>Digital Design</label>
-                    </form>
-                    
+                <div>
+                    {content && <div>{selectComponent[content]}</div>}
                 </div>
             </div>
             <div className='SearchDiv'>
@@ -105,4 +114,4 @@ const registration = () => {
     );
 }
 
-export default registration;
+export default Registration;
