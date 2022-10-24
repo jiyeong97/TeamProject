@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import '../css/App.css';
+
 import Diploma from '../Components/dimploma';
 import Postdiploma from '../Components/postdiploma';
 import Certificate from '../Components/certification';
 import Upgrade from '../Components/upgrade';
 
-import { Link } from "react-router-dom";
 
-
-const Registration = () => {
+const Admin = () => {
     const [content, setContent] = useState();
 
     const buttonValueSetting = e => {
@@ -33,7 +32,6 @@ const Registration = () => {
                 <button type="button"  className='majormenu'onClick={buttonValueSetting} name='Postdiploma' key={Diploma}>Post Diploma</button>
                 <button type="button"  className='majormenu'onClick={buttonValueSetting} name='Certificate' key={Diploma}>Certificate</button>
                 <button type="button"  className='majormenu'onClick={buttonValueSetting} name='Upgrade' key={Diploma}>Upgrade</button>
-                <Link to="/mycourse" className='mycoursemenu'>My Course</Link>
             </div>
             <div className='programDiv'>
                 <div className='program'>Programs</div>
@@ -44,6 +42,7 @@ const Registration = () => {
             <div className='SearchDiv'>
                 <p className='courseName'>Course Name : <input type="text" name="name" className="inputCourse" /></p>
                 <button type="button" id="searchbtn">Search</button>
+                <button type="button" className='addbtn'>Add</button>
             </div>
             <div className='courselistDiv'>
                 <div className='termDiv'>
@@ -67,7 +66,7 @@ const Registration = () => {
                                 <div>Course Schedule</div>
                                 <div>Tuesday : 9:30AM ~ 11:00AM</div>
                                 <div>Thursday : 9:30AM ~ 11:00AM</div>
-                                <button type="button" id="register" className='registerbtn'>Register</button>
+                                <button type="button" id="edit" className='editbtn'>Edit</button>
                             </div>
                         </div>
                     </div>
@@ -85,7 +84,7 @@ const Registration = () => {
                                 <div>Course Schedule</div>
                                 <div>Monday : 12:30PM ~ 02:00PM</div>
                                 <div>Wednesday : 12:30PM ~ 02:00PM</div>
-                                <button type="button" id="register" className='registerbtn'>Register</button>
+                                <button type="button" id="edit" className='editbtn'>Edit</button>
                             </div>
                         </div>
                     </div>
@@ -103,7 +102,7 @@ const Registration = () => {
                                 <div>Course Schedule</div>
                                 <div>Monday : 9:30AM ~ 11:00AM</div>
                                 <div>Wednesday : 9:30AM ~ 11:00AM</div>
-                                <button type="button" id="register" className='registerbtn'>Register</button>
+                                <button type="button" id="edit" className='editbtn'>Edit</button>
                             </div>
                         </div>
                     </div>
@@ -113,4 +112,4 @@ const Registration = () => {
     );
 }
 
-export default Registration;
+export default Admin;

@@ -178,3 +178,37 @@
 .deletebtn:hover{
     background-color: rgb(120, 120, 180);
 }
+.editbtn{
+    height: 40px;
+    margin-top: 20px;
+    background-color: rgb(76, 76, 167);
+    border: none;
+    width: 180px;
+    color:white;
+    font-size: 18px;
+    border-radius: 0.3em;
+    box-shadow: 3px 2px 5px #888888;
+}
+.editbtn:hover{
+    background-color: rgb(120, 120, 180);
+}
+.addbtn{
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 40px;
+    background-color: rgb(76, 76, 167);
+    border: none;
+    width: 180px;
+    color:white;
+    font-size: 18px;
+    border-radius: 0.3em;
+    box-shadow: 3px 2px 5px #888888;
+}
+.addbtn:hover{
+    background-color: rgb(120, 120, 180);
+}
+.inputCourse{
+    font-size: 18px;
+    width: 400px;
+    margin-right: 20px;
+}
