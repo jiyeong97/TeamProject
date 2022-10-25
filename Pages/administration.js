@@ -5,6 +5,7 @@ import Diploma from '../Components/dimploma';
 import Postdiploma from '../Components/postdiploma';
 import Certificate from '../Components/certification';
 import Upgrade from '../Components/upgrade';
+import CourseInfo from '../Components/courseForm';
 
 
 const Admin = () => {
@@ -21,6 +22,8 @@ const Admin = () => {
         Certificate : <Certificate/>,
         Upgrade : <Upgrade/>
     };
+
+    const [visible, setVisible] = useState(false);
 
     return (
         <div>
@@ -42,7 +45,13 @@ const Admin = () => {
             <div className='SearchDiv'>
                 <p className='courseName'>Course Name : <input type="text" name="name" className="inputCourse" /></p>
                 <button type="button" id="searchbtn">Search</button>
-                <button type="button" className='addbtn'>Add</button>
+                <button type="button" className='addbtn' onClick = {()=>{
+                    setVisible(!visible);
+                }}>{visible ? "Exit" : "Add"}</button>
+                
+            </div>
+            <div className='AddInfoDiv'>
+                {visible && <CourseInfo/>}
             </div>
             <div className='courselistDiv'>
                 <div className='termDiv'>
