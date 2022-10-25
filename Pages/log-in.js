@@ -18,9 +18,9 @@ const LogIn = () => {
            
                  <form>
                 
-                <input type="text" name="name"  placeholder='Name'/>
+                <input type="text" name="name" className='input'  placeholder='Name'/>
                
-                <input type="password" name="password" placeholder='Password'/>
+                <input type="password" name="password" className='input' placeholder='Password'/>
              
                 <select className='select-user'>
                 <option value="grapefruit">Student</option>
