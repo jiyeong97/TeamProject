@@ -20,11 +20,13 @@ export const LogIn = () => {
             IdStudent: "430843",
             passwordStudent: "123456"
         }
+            console.log(studentId);
 
         let administratorId = {
             nameAdmin: "100001",
             passwordAdmin: "789789"
         }
+            console.log(administratorId);
 
         if(data.selectId.value === "student"){
             if( (data.id.value === "430843") && (data.password.value === "123456") )
@@ -42,7 +44,7 @@ export const LogIn = () => {
         }
 
         else if(data.selectId.value === "administrator"){
-            if(data.id.value === "100001" && data.password.value === "789789")
+            if( (data.id.value === "100001")  && ( data.password.value === "789789"))
             {
                 //Redirect to Administration page.
                 alert("Bienvenido  " +  data.id.value + "  a la pagina de Administrador");
@@ -61,7 +63,7 @@ return (
     <div>
 
         <header className='header'>
-            <img  className='imagen' src={logo} alt="this is car image" />
+            <img  className='imagen' src={logo} alt="Logo Bow Valley College" />
         </header>
 
 
