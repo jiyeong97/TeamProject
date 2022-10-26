@@ -4,6 +4,10 @@ import Diploma from '../Components/dimploma';
 import Postdiploma from '../Components/postdiploma';
 import Certificate from '../Components/certification';
 import Upgrade from '../Components/upgrade';
+import Term1 from '../Components/term1';
+import Term2 from '../Components/term2';
+import Term3 from '../Components/term3';
+import Term4 from '../Components/term4';
 
 import { Link } from "react-router-dom";
 
@@ -16,12 +20,24 @@ const Registration = () => {
         setContent(name);
     }
 
+    const termValueSetting = e => {
+        const{name} = e.target;
+        setContent(name);
+    }
+
     const selectComponent  = {
         Diploma : <Diploma/>,
         Postdiploma : <Postdiploma/>,
         Certificate : <Certificate/>,
         Upgrade : <Upgrade/>
+        
     };
+    const selectComponent1 = {
+        Term1 : <Term1/>,
+        Term2 : <Term2/>,
+        Term3 : <Term3/>,
+        Term4 : <Term4/>
+    }
 
     return (
         <div>
@@ -47,67 +63,14 @@ const Registration = () => {
             </div>
             <div className='courselistDiv'>
                 <div className='termDiv'>
-                    <button type="button" id="term1" className='termbtn'>Term1</button>
-                    <button type="button" id="term2" className='termbtn'>Term2</button>
-                    <button type="button" id="term3" className='termbtn'>Term3</button>
-                    <button type="button" id="term4" className='termbtn'>Term4</button>
+                    <button type="button" id="term1" className='termbtn' onClick={termValueSetting} name='Term1' key={Term1}>Term1</button>
+                    <button type="button" id="term2" className='termbtn' onClick={termValueSetting} name='Term2' key={Term2}>Term2</button>
+                    <button type="button" id="term3" className='termbtn' onClick={termValueSetting} name='Term3' key={Term3}>Term3</button>
+                    <button type="button" id="term4" className='termbtn' onClick={termValueSetting} name='Term4' key={Term4}>Term4</button>
                 </div>
-                <div className='courseDetailDiv1'>
-                    <div className='courseDetailDiv2'>
-                        <div className='courseDetailName'>SODV1101 - Programming Fundamentals</div>
-                        <div className='courseDetailDiv3'>
-                            <div>
-                                <div>Start Date : January 10,2023</div>
-                                <div>End Date : April 28, 2023</div>
-                                <div>Delivery Mode : In Class</div>
-                                <div>Seats Available : 40</div>
-                                <div>Tuition : $1857.00</div>
-                            </div>
-                            <div className='courseDetails'>
-                                <div>Course Schedule</div>
-                                <div>Tuesday : 9:30AM ~ 11:00AM</div>
-                                <div>Thursday : 9:30AM ~ 11:00AM</div>
-                                <button type="button" id="register" className='registerbtn'>Register</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='courseDetailDiv2'>
-                        <div className='courseDetailName'>TECH1101 - Web and Internet Fundamentals</div>
-                        <div className='courseDetailDiv3'>
-                            <div>
-                                <div>Start Date : January 10,2023</div>
-                                <div>End Date : April 28, 2023</div>
-                                <div>Delivery Mode : In Class</div>
-                                <div>Seats Available : 40</div>
-                                <div>Tuition : $1857.00</div>
-                            </div>
-                            <div className='courseDetails'>
-                                <div>Course Schedule</div>
-                                <div>Monday : 12:30PM ~ 02:00PM</div>
-                                <div>Wednesday : 12:30PM ~ 02:00PM</div>
-                                <button type="button" id="register" className='registerbtn'>Register</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='courseDetailDiv2'>
-                        <div className='courseDetailName'>TECH1102 - Internet of Things</div>
-                        <div className='courseDetailDiv3'>
-                            <div>
-                                <div>Start Date : January 10,2023</div>
-                                <div>End Date : April 28, 2023</div>
-                                <div>Delivery Mode : In Class</div>
-                                <div>Seats Available : 40</div>
-                                <div>Tuition : $1857.00</div>
-                            </div>
-                            <div className='courseDetails'>
-                                <div>Course Schedule</div>
-                                <div>Monday : 9:30AM ~ 11:00AM</div>
-                                <div>Wednesday : 9:30AM ~ 11:00AM</div>
-                                <button type="button" id="register" className='registerbtn'>Register</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               <div className='courseDetailDiv1'>
+                    {content&& <div className='courseDetailDiv1'>{selectComponent1[content]}</div>}
+            </div>
             </div>
         </div>
     );

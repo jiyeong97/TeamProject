@@ -215,3 +215,17 @@
 .courseAddInputDiv{
     padding-left: 40px;
 }
+.register{
+    height: 40px;
+    margin-top: 20px;
+    background-color: rgb(76, 76, 167);
+    border: none;
+    width: 180px;
+    color:white;
+    font-size: 18px;
+    border-radius: 0.3em;
+    box-shadow: 3px 2px 5px #888888;
+}
+.register:hover{
+    background-color: rgb(120, 120, 180);
+}

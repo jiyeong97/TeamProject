@@ -11,7 +11,8 @@ const Admin = () => {
     const [courseForm,setcourseForm] = useState([
         {courseName:"SODV1101 - Programming Fundamentals", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Thuesday : 9:30AM ~ 11:00AM", courseSchedule2:"Thursday : 9:30AM ~ 11:00AM"},
         {courseName:"TECH1101 - Web and Internet Fundamentals", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Monday : 12:30PM ~ 02:00PM", courseSchedule2:"Wednesday : 12:30PM ~ 02:00PM"},
-        {courseName:"SODV1101 - Internet of Things", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Monday : 9:30AM ~ 11:00AM", courseSchedule2:"Wednesday : 9:30AM ~ 11:00AM"}
+        {courseName:"SODV1101 - Internet of Things", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Monday : 9:30AM ~ 11:00AM", courseSchedule2:"Wednesday : 9:30AM ~ 11:00AM"},
+        {courseName:"MGMT1103 - Introduction to Project Teams", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Thuesday : 12:30PM ~ 02:00PM", courseSchedule2:"Thursday : 12:30PM ~ 02:00PM"}
     ])
 
     const deleteCourse = () =>{

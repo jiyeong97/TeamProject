@@ -32,7 +32,7 @@ export const LogIn = () => {
             {
                 //Redirect page to mycouse page
                 alert("Welcome  " +  data.id.value + "  to Courses Page");
-                window.location.replace('/mycourse');
+                window.location.replace('/registration');
                
             }
             else{
@@ -47,7 +47,7 @@ export const LogIn = () => {
             {
                 //Redirect to Administration page.
                 alert("Welcome " +  data.id.value + "  to Administrator page");
-                window.location.replace('/administration');
+                window.location.replace('/admin');
             }
             else{
                 //redirect to login page
@@ -68,6 +68,7 @@ return (
         <h2 className='title'>Welcome to Bow Valley College!</h2>
 
         <div> <h2 className='title-loginpage'>Login Page</h2></div>
+        <div className='centerdiv'>
             <div className='container'>   
            
             <form onSubmit={conseguirDatosFormulario}>    
@@ -84,6 +85,7 @@ return (
                 <input className='input' type="submit" value="Submit"/>
                    
             </form>
+        </div>
         </div>
     </div>
 )
