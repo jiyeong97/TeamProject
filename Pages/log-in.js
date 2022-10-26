@@ -27,7 +27,7 @@ const LogIn = () => {
                 <option value="lime">Administrator</option>
                 </select>
 
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" className='input' />
                 </form>
 
 

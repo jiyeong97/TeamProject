@@ -1,7 +1,8 @@
 *{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.title{
+.title1{
+    margin:2%;
     text-align: center;
     font-size: 30px;  
 }
@@ -176,20 +177,6 @@
     box-shadow: 3px 2px 5px #888888;
 }
 .deletebtn:hover{
-    background-color: rgb(120, 120, 180);
-}
-.editbtn{
-    height: 40px;
-    margin-top: 20px;
-    background-color: rgb(76, 76, 167);
-    border: none;
-    width: 180px;
-    color:white;
-    font-size: 18px;
-    border-radius: 0.3em;
-    box-shadow: 3px 2px 5px #888888;
-}
-.editbtn:hover{
     background-color: rgb(120, 120, 180);
 }
 .addbtn{

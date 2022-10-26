@@ -7,8 +7,19 @@ import Certificate from '../Components/certification';
 import Upgrade from '../Components/upgrade';
 import CourseInfo from '../Components/courseForm';
 
-
 const Admin = () => {
+    const [courseForm,setcourseForm] = useState([
+        {courseName:"SODV1101 - Programming Fundamentals", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Thuesday : 9:30AM ~ 11:00AM", courseSchedule2:"Thursday : 9:30AM ~ 11:00AM"},
+        {courseName:"TECH1101 - Web and Internet Fundamentals", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Monday : 12:30PM ~ 02:00PM", courseSchedule2:"Wednesday : 12:30PM ~ 02:00PM"},
+        {courseName:"SODV1101 - Internet of Things", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Monday : 9:30AM ~ 11:00AM", courseSchedule2:"Wednesday : 9:30AM ~ 11:00AM"}
+    ])
+
+    const deleteCourse = () =>{
+        let copy_courseForm=[...courseForm]
+        copy_courseForm.splice(0,1)
+        setcourseForm(copy_courseForm);
+    }
+
     const [content, setContent] = useState();
 
     const buttonValueSetting = e => {
@@ -27,7 +38,7 @@ const Admin = () => {
 
     return (
         <div>
-            <div className='title'>
+            <div className='title1'>
                 <h1>BVC Course Registration</h1>
             </div>
             <div className='menu'>
@@ -61,60 +72,26 @@ const Admin = () => {
                     <button type="button" id="term4" className='termbtn'>Term4</button>
                 </div>
                 <div className='courseDetailDiv1'>
-                    <div className='courseDetailDiv2'>
-                        <div className='courseDetailName'>SODV1101 - Programming Fundamentals</div>
+                    {courseForm.map((course, index)=>(
+                        <div className='courseDetailDiv2'>
+                        <div className='courseDetailName'>{course.courseName}</div>
                         <div className='courseDetailDiv3'>
                             <div>
-                                <div>Start Date : January 10,2023</div>
-                                <div>End Date : April 28, 2023</div>
-                                <div>Delivery Mode : In Class</div>
-                                <div>Seats Available : 40</div>
-                                <div>Tuition : $1857.00</div>
+                                <div>Start Date : {course.courseStartdate}</div>
+                                <div>End Date : {course.courseEnddate}</div>
+                                <div>Delivery Mode : {course.courseMode}</div>
+                                <div>Seats Available : {course.courseSeat}</div>
+                                <div>Tuition : {course.courseTuition}</div>
                             </div>
                             <div className='courseDetails'>
                                 <div>Course Schedule</div>
-                                <div>Tuesday : 9:30AM ~ 11:00AM</div>
-                                <div>Thursday : 9:30AM ~ 11:00AM</div>
-                                <button type="button" id="edit" className='editbtn'>Edit</button>
+                                <div>{course.courseSchedule1}</div>
+                                <div>{course.courseSchedule2}</div>
+                                <button type="button" id="delete" className='deletebtn' onClick={deleteCourse}>Delete</button>
                             </div>
                         </div>
                     </div>
-                    <div className='courseDetailDiv2'>
-                        <div className='courseDetailName'>TECH1101 - Web and Internet Fundamentals</div>
-                        <div className='courseDetailDiv3'>
-                            <div>
-                                <div>Start Date : January 10,2023</div>
-                                <div>End Date : April 28, 2023</div>
-                                <div>Delivery Mode : In Class</div>
-                                <div>Seats Available : 40</div>
-                                <div>Tuition : $1857.00</div>
-                            </div>
-                            <div className='courseDetails'>
-                                <div>Course Schedule</div>
-                                <div>Monday : 12:30PM ~ 02:00PM</div>
-                                <div>Wednesday : 12:30PM ~ 02:00PM</div>
-                                <button type="button" id="edit" className='editbtn'>Edit</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='courseDetailDiv2'>
-                        <div className='courseDetailName'>TECH1102 - Internet of Things</div>
-                        <div className='courseDetailDiv3'>
-                            <div>
-                                <div>Start Date : January 10,2023</div>
-                                <div>End Date : April 28, 2023</div>
-                                <div>Delivery Mode : In Class</div>
-                                <div>Seats Available : 40</div>
-                                <div>Tuition : $1857.00</div>
-                            </div>
-                            <div className='courseDetails'>
-                                <div>Course Schedule</div>
-                                <div>Monday : 9:30AM ~ 11:00AM</div>
-                                <div>Wednesday : 9:30AM ~ 11:00AM</div>
-                                <button type="button" id="edit" className='editbtn'>Edit</button>
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>

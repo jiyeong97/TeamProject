@@ -25,7 +25,7 @@ const Registration = () => {
 
     return (
         <div>
-            <div className='title'>
+            <div className='title1'>
                 <h1>BVC Course Registration</h1>
             </div>
             <div className='menu'>
