@@ -1,0 +1,44 @@
+{
+    "user":[
+        {
+            "ID" : "jiyeong",
+            "Password" : "1234",
+            "Role" : "Student"
+        },
+        {
+            "ID" : "maria",
+            "Password" : "2345",
+            "Role" : "Student"
+        },
+        {
+            "ID" : "rajnandani",
+            "Password" : "3456",
+            "Role" : "Student"
+        },
+        {
+            "ID" : "jashan",
+            "Password" : "4567",
+            "Role" : "Student"
+        },
+        {
+            "ID" : "tigist",
+            "Password" : "1234",
+            "Role" : "Admin"
+        },
+        {
+            "ID" : "Dima",
+            "Password" : "2345",
+            "Role" : "Admin"
+        },
+        {
+            "ID" : "Achala",
+            "Password" : "3456",
+            "Role" : "Admin"
+        },
+        {
+            "ID" : "Sohaib",
+            "Password" : "4567",
+            "Role" : "Admin"
+        }
+    ]
+}
