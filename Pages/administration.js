@@ -6,6 +6,7 @@ import Postdiploma from '../Components/postdiploma';
 import Certificate from '../Components/certification';
 import Upgrade from '../Components/upgrade';
 import CourseInfo from '../Components/courseForm';
+import { Link } from "react-router-dom";
 
 const Admin = () => {
     const [courseForm,setcourseForm] = useState([
@@ -47,6 +48,7 @@ const Admin = () => {
                 <button type="button"  className='majormenu'onClick={buttonValueSetting} name='Postdiploma' key={Diploma}>Post Diploma</button>
                 <button type="button"  className='majormenu'onClick={buttonValueSetting} name='Certificate' key={Diploma}>Certificate</button>
                 <button type="button"  className='majormenu'onClick={buttonValueSetting} name='Upgrade' key={Diploma}>Upgrade</button>
+                <Link to="/contactAdmin" className='mycoursemenu'>Contact</Link>
             </div>
             <div className='programDiv'>
                 <div className='program'>Programs</div>

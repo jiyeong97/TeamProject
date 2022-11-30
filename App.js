@@ -5,6 +5,7 @@ import LogIn from './Pages/log-in';
 import Registration from './Pages/registration';
 import MyCourse from './Pages/mycourse';
 import Admin from './Pages/administration';
+import ContactAdmin from './Pages/contactAdmin';
 
 class App extends Component{
     render(){
@@ -16,6 +17,7 @@ class App extends Component{
                         <Route path="/registration" element={<Registration />}/>
                         <Route path="/mycourse" element={<MyCourse />}/>
                         <Route path="/admin" element={<Admin/>}/>
+                        <Route path="/contactAdmin" element={<ContactAdmin/>}/>
                     </Routes>
                 </BrowserRouter>
             </>
