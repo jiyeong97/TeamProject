@@ -10,7 +10,7 @@ app.use(express.json());
 app.listen(port, () => console.log(`Listening on port ${port}` ));
 
 //===============================================================
-//create an array to store user data and save it to file system
+//create an array to store course data and save it to file system
 var exists = fs.existsSync('course.json');
 if (exists) {
     console.log('loading course data');
@@ -116,3 +116,64 @@ app.get('/showCourseByName/:name',(req,res)=>{
     res.send(rese);
     }
 })
+
+//Adding new course in Admin Page
+app.get("/addnewCourse", (req,res) => {  
+    const data1 = fs.readFileSync('course.json', 'utf-8');
+    res.send(data1); 
+});
+
+app.post('/addnewCourse', (req, res) => {
+    const major = req.body.Major;
+    const program = req.body.Program;
+    const coursename = req.body.CourseName; 
+    const startdate = req.body.StartDate;
+    const enddate = req.body.EndDate;
+    const deliverymode = req.body.DeliveryMode;
+    const seatsavailable = req.body.SeatsAvailable;
+    const tuition = req.body.Tuition;
+    const term = req.body.Term;
+    const schedule1 = req.body.Schedule1;
+    const schedule2 = req.body.Schedule2;
+    const rs = {major,program,coursename,startdate,enddate,deliverymode,seatsavailable,tuition,term,schedule1,schedule2}
+    console.log(JSON.stringify(rs))
+
+    //store the username and password using module 10 lesson 9 example to json file
+    if(!rs.major){ 
+        let reply ={
+            info:"Please complete the form before you submit it"
+        }
+        res.send(reply);
+        console.log(reply);
+        }else{ 
+            obj.course.push( { 
+                Major:req.body.Major,
+                Program:req.body.Program,
+                Name:req.body.CourseName,
+                StartDate:req.body.StartDate,
+                EndDate:req.body.EndDate,
+                DeliveryMode:req.body.DeliveryMode,
+                SeatsAvailable:req.body.SeatsAvailable,
+                Tuition:req.body.Tuition,
+                Term:req.body.Term,
+                Schedule1:req.body.Schedule1,
+                Schedule2:req.body.Schedule2
+             });
+            let data = JSON.stringify(obj, null, 2);  
+            fs.writeFile('course.json', data, confirm);
+
+            function confirm(err)
+            {         
+            let reply={
+                name:req.body.CourseName,
+                status:"success",
+                info:` :Data is recived thank you  ${coursename}`
+             }
+            
+             res.send(reply);
+             console.log(reply);
+
+          }     
+       }
+
+});
