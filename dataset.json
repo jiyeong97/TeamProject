@@ -1,20 +1,34 @@
-[
-  {
-    "name": "Radjana Manocha",
-    "email": "Rajdani34@gmail.com",
-    "username": "Rajdana34",
-    "password": "123456"
-  },
-  {
-    "name": "Jiyoung Yun",
-    "email": "Jiyung56@gmail.com",
-    "username": "Jiyung23",
-    "password": "123456"
-  },
-  {
-    "name": "Jashanpreet Kaur",
-    "email": "Jshan345@gmail.com",
-    "username": "Jashan34",
-    "password": "1234567"
-  }
-]
+{
+  "user": [
+    {
+      "name": "prueba4",
+      "lastname": "probando4",
+      "email": "probando@gmail.com",
+      "telephone": "345-567-4567",
+      "department": "Tecnology",
+      "program": "Diploma",
+      "username": "prueba45",
+      "password": "12345667"
+    },
+    {
+      "name": "prueba5",
+      "lastname": "probando5",
+      "email": "prueba55@gmail.com",
+      "telephone": "5875816333",
+      "department": "Tecnology",
+      "program": "Certification",
+      "username": "prueba555",
+      "password": "1234567"
+    },
+    {
+      "name": "Maria",
+      "lastname": "Estrella",
+      "email": "mrestrella4@gmail.com",
+      "telephone": "5875816333",
+      "department": "Technology",
+      "program": "Diploma",
+      "username": "maria843",
+      "password": "12345"
+    }
+  ]
+}
