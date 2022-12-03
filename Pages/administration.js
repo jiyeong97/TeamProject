@@ -233,41 +233,50 @@ const Admin = () => {
     }
 
     const CourseInfo=() => {
-        const [courseForm,setcourseForm] = useState([
-            {courseName:"SODV1101 - Programming Fundamentals", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Thuesday : 9:30AM ~ 11:00AM", courseSchedule2:"Thursday : 9:30AM ~ 11:00AM"},
-            {courseName:"TECH1101 - Web and Internet Fundamentals", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Monday : 12:30PM ~ 02:00PM", courseSchedule2:"Wednesday : 12:30PM ~ 02:00PM"},
-            {courseName:"SODV1101 - Internet of Things", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Monday : 9:30AM ~ 11:00AM", courseSchedule2:"Wednesday : 9:30AM ~ 11:00AM"}
-        ])
+        
     
-        const [newcourseForm,setnewcourseForm]=useState({courseMajor:'',courseProgram:'',courseName:'', courseStartdate:'', courseEnddate:'', courseMode:'', courseSeat:'', courseTuition:'', courseSchedule1:'', courseSchedule2:'',courseTerm:''})
-    
-        const handleClick = () =>{
-            setcourseForm([...courseForm,newcourseForm])
-            console.log(courseForm);
-            alert("Course is added.");
+        const [newcourseForm,setnewcourseForm]=useState({Major:"",Program:"",Name:"", StartDate:"", EndDate:"", DeliveryMode:"", SeatsAvailable:"", Tuition:"", Schedule1:"", Schedule2:"", Term:""})
+        
+        const [msg,setMsg] = useState("")
+
+        const handleChange = (event) =>{
+            setnewcourseForm({...newcourseForm,[event.target.name]: event.target.value})
+        };
+
+        const handleClick = (event) =>{
+            event.preventDefault();
+            Axios.post('http://localhost:5000/addnewCourse', newcourseForm)
+                .then(response=>{
+                    setMsg(response)
+                    alert("The course is created")
+                    window.location.replace('/admin');
+                })
         }
     
         return(
             <div className='courseAddDiv1'>
-                <div className='courseDetailName'>Major : <input type="text" name="coursemajor" value={newcourseForm.courseMajor} onChange={e=>setnewcourseForm({...newcourseForm, courseName:e.target.value})} className="inputCourse" /></div>
-                <div className='courseDetailName'>Program : <input type="text" name="courseprogram" value={newcourseForm.courseProgram} onChange={e=>setnewcourseForm({...newcourseForm, courseName:e.target.value})} className="inputCourse" /></div>
-                <div className='courseDetailName'>Course Name : <input type="text" name="coursename" value={newcourseForm.courseName} onChange={e=>setnewcourseForm({...newcourseForm, courseName:e.target.value})} className="inputCourse" /></div>
+                <form onSubmit={handleClick} >
+                <div className='courseDetailName'>Major : <input type="text" name="Major" value={newcourseForm.Major} onChange={handleChange} className="inputCourse" /></div>
+                <div className='courseDetailName'>Program : <input type="text" name="Program" value={newcourseForm.Program} onChange={handleChange} className="inputCourse" /></div>
+                <div className='courseDetailName'>Course Name : <input type="text" name="Name" value={newcourseForm.Name} onChange={handleChange} className="inputCourse" /></div>
                     <div className='courseDetailDiv3'>
                         <div className='courseAddInputDiv'>
-                            <div>Start Date : <input type="text" name="startdate" value={newcourseForm.courseStartdate} onChange={e=>setnewcourseForm({...newcourseForm, courseStartdate:e.target.value})} className="inputCourse" /></div>
-                            <div>End Date : <input type="text" name="enddate" value={newcourseForm.courseEnddate} onChange={e=>setnewcourseForm({...newcourseForm, courseEnddate:e.target.value})} className="inputCourse" /></div>
-                            <div>Delivery Mode : <input type="text" name="mode" value={newcourseForm.courseMode} onChange={e=>setnewcourseForm({...newcourseForm, courseMode:e.target.value})} className="inputCourse" /></div>
-                            <div>Seats Available : <input type="text" name="seats" value={newcourseForm.courseSeat} onChange={e=>setnewcourseForm({...newcourseForm, courseSeat:e.target.value})} className="inputCourse" /></div>
-                            <div>Tuition : <input type="text" name="tuition" value={newcourseForm.courseTuition} onChange={e=>setnewcourseForm({...newcourseForm, courseTuition:e.target.value})} className="inputCourse" /></div>
+                            <div>Start Date : <input type="text" name="StartDate"  value={newcourseForm.StartDate} onChange={handleChange} className="inputCourse" /></div>
+                            <div>End Date : <input type="text" name="EndDate"  value={newcourseForm.EndDate} onChange={handleChange} className="inputCourse" /></div>
+                            <div>Delivery Mode : <input type="text" name="DeliveryMode" value={newcourseForm.DeliveryMode} onChange={handleChange} className="inputCourse" /></div>
+                            <div>Seats Available : <input type="text" name="SeatsAvailable" value={newcourseForm.SeatsAvailable} onChange={handleChange} className="inputCourse" /></div>
+                            <div>Tuition : <input type="text" name="Tuition" value={newcourseForm.Tuition} onChange={handleChange} className="inputCourse" /></div>
                         </div>
                         <div className='courseDetails'>
                             <div>Course Schedule</div>
-                            <div>Schedule1 : <input type="text" name="schedule1" value={newcourseForm.courseSchedule1} onChange={e=>setnewcourseForm({...newcourseForm, courseSchedule1:e.target.value})} className="inputCourse" /></div>
-                            <div>Schedule2 : <input type="text" name="schedule2" value={newcourseForm.courseSchedule2} onChange={e=>setnewcourseForm({...newcourseForm, courseSchedule2:e.target.value})} className="inputCourse" /></div>
-                            <div>Term : <input type="text" name="term" value={newcourseForm.courseTerm} onChange={e=>setnewcourseForm({...newcourseForm, courseSchedule2:e.target.value})} className="inputCourse" /></div>
-                            <button type="button" id="add" className='registerbtn' onClick={handleClick} >Add</button>
+                            <div>Schedule1 : <input type="text" name="Schedule1" value={newcourseForm.Schedule1} onChange={handleChange} className="inputCourse" /></div>
+                            <div>Schedule2 : <input type="text" name="Schedule2" value={newcourseForm.Schedule2} onChange={handleChange} className="inputCourse" /></div>
+                            <div>Term : <input type="text" name="Term" value={newcourseForm.Term} onChange={handleChange} className="inputCourse" /></div>
+                            <button id="add" className='registerbtn' >Add</button>
                         </div>
+                
             </div>
+            </form>
          </div>
         );
     }
