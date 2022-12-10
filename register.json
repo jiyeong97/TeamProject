@@ -1,0 +1,29 @@
+{
+    "register":[
+        {
+            "CourseID":"1",
+            "StudentID":"jiyeong"
+        },
+        {
+            "CourseID":"1",
+            "StudentID":"maria"
+        },
+        {
+            "CourseID":"2",
+            "StudentID":"rajanadani"
+        },
+        {
+            "CourseID":"2",
+            "StudentID":"jashan"
+        },
+        {
+            "CourseID":"3",
+            "StudentID":"jashan"
+        },
+        {
+            "CourseID":"3",
+            "StudentID":"jiyeong"
+        }
+
+    ]
+}
