@@ -3,22 +3,11 @@ import Axios from 'axios';
 import '../css/App.css';
 
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 
 
 const Admin = () => {
-    const [courseForm,setcourseForm] = useState([
-        {courseName:"SODV1101 - Programming Fundamentals", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Thuesday : 9:30AM ~ 11:00AM", courseSchedule2:"Thursday : 9:30AM ~ 11:00AM"},
-        {courseName:"TECH1101 - Web and Internet Fundamentals", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Monday : 12:30PM ~ 02:00PM", courseSchedule2:"Wednesday : 12:30PM ~ 02:00PM"},
-        {courseName:"SODV1101 - Internet of Things", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Monday : 9:30AM ~ 11:00AM", courseSchedule2:"Wednesday : 9:30AM ~ 11:00AM"},
-        {courseName:"MGMT1103 - Introduction to Project Teams", courseStartdate:"January 10, 2023", courseEnddate:"April 28, 2023", courseMode:"In Class", courseSeat:"40", courseTuition:"$1857.00", courseSchedule1:"Thuesday : 12:30PM ~ 02:00PM", courseSchedule2:"Thursday : 12:30PM ~ 02:00PM"}
-    ])
-
-    const deleteCourse = () =>{
-        let copy_courseForm=[...courseForm]
-        copy_courseForm.splice(0,1)
-        setcourseForm(copy_courseForm);
-    }
 
     const [content, setContent] = useState();
 
@@ -85,9 +74,13 @@ const Admin = () => {
     const [term, setTerm] = useState("");
     const [schedule1, setSchedule1] = useState("");
     const [schedule2, setSchedule2] = useState("");
+    const [courseId, setCourseId] = useState("");
     const [coursebyName,setCourseByName] = useState([]);
     const [coursebyProgram, setCourseByProgram] = useState([]);
     const [filteredCourse, setFilteredCourse] = useState([]);
+    const [registeredCourse, setRegisteredCourse] = useState([]);
+    const [studentId, setStudentId] = useState("");
+    const [regicourseId,setregicourseId] = useState("");
 
     const showByName = ()=>{
         Axios.get('http://localhost:5000/showCourseByName/'+name)
@@ -102,7 +95,8 @@ const Admin = () => {
                 setTuition(response.data.tuition)
                 setTerm(response.data.term)
                 setSchedule1(response.data.schedule1)
-                setSchedule2(response.data.schedule2);
+                setSchedule2(response.data.schedule2)
+                setCourseId(response.data.courseId);
             }).catch((error)=>{
                 console.warn('There is error : ' + error);
             })
@@ -119,7 +113,8 @@ const Admin = () => {
                 setTuition(response.data.tuition)
                 setTerm(response.data.term)
                 setSchedule1(response.data.schedule1)
-                setSchedule2(response.data.schedule2);
+                setSchedule2(response.data.schedule2)
+                setCourseId(response.data.courseId);
             }).catch((error)=>{
                 console.warn('There is error : ' + error);
             })
@@ -131,6 +126,38 @@ const Admin = () => {
             }
             
 
+    }
+
+    const showRegistered =(courseId) =>{
+        Axios.get('http://localhost:5000/showRegistered/'+courseId)
+        .then((response)=>{
+            setRegisteredCourse(response.data)
+            setStudentId(response.data.studentId)
+            setregicourseId(response.data.courseId)
+            alert("Look at the console")
+            console.log(response.data)
+        }).catch((error)=>{
+            console.warn('There is error : ' + error);
+        }) 
+        
+    }
+
+
+    const deleteCourse1 = () =>{
+        let copy_courseForm=[...coursebyName]
+        copy_courseForm.splice(0,1)
+        setCourseByName(copy_courseForm);
+    }
+    const deleteCourse2 = () =>{
+        let copy_courseForm=[...coursebyProgram]
+        copy_courseForm.splice(0,1)
+        setCourseByProgram(copy_courseForm);
+    }
+
+    const deleteCourse3 = () =>{
+        let copy_courseForm=[...filteredCourse]
+        copy_courseForm.splice(0,1)
+        setFilteredCourse(copy_courseForm);
     }
 
     const filteringTerm1 = () =>{
@@ -333,12 +360,14 @@ const Admin = () => {
                                 <div>Delivery Mode : {course.deliverymode}</div>
                                 <div>Seats Available : {course.seatsavailable}</div>
                                 <div>Tuition : {course.tuition}</div>
+                                <button type="button" id="detail" className='deletebtn' onClick={()=>showRegistered(course.courseId)} >Detail</button>
                             </div>
                             <div className='courseDetails'>
                                 <div>Course Schedule</div>
                                 <div>{course.schedule1}</div>
                                 <div>{course.schedule2}</div>
-                                <button type="button" id="delete" className='deletebtn' onClick={deleteCourse}>Delete</button>
+                                <button type="button" id="delete" className='deletebtn' onClick={deleteCourse1}>Delete</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -355,12 +384,13 @@ const Admin = () => {
                                 <div>Delivery Mode : {course.deliverymode}</div>
                                 <div>Seats Available : {course.seatsavailable}</div>
                                 <div>Tuition : {course.tuition}</div>
+                                <button type="button" id="detail" className='deletebtn'onClick={()=>showRegistered(course.courseId)}>Detail</button>
                             </div>
                             <div className='courseDetails'>
                                 <div>Course Schedule</div>
                                 <div>{course.schedule1}</div>
                                 <div>{course.schedule2}</div>
-                                <button type="button" id="delete" className='deletebtn' onClick={deleteCourse}>Delete</button>
+                                <button type="button" id="delete" className='deletebtn' onClick={deleteCourse2}>Delete</button>
                             </div>
                         </div>
                     </div>
@@ -377,12 +407,13 @@ const Admin = () => {
                                 <div>Delivery Mode : {course.deliverymode}</div>
                                 <div>Seats Available : {course.seatsavailable}</div>
                                 <div>Tuition : {course.tuition}</div>
+                                <button type="button" id="detail" className='deletebtn'onClick={()=>showRegistered(course.courseId)}>Detail</button>
                             </div>
                             <div className='courseDetails'>
                                 <div>Course Schedule</div>
                                 <div>{course.schedule1}</div>
                                 <div>{course.schedule2}</div>
-                                <button type="button" id="delete" className='deletebtn' onClick={deleteCourse}>Delete</button>
+                                <button type="button" id="delete" className='deletebtn' onClick={deleteCourse3}>Delete</button>
                             </div>
                         </div>
                     </div>
