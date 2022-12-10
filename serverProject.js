@@ -53,7 +53,8 @@ app.get('/showCourseByProgram/:Program',(req,res)=>{
                         tuition:obj.course[i].Tuition,
                         term:obj.course[i].Term,
                         schedule1:obj.course[i].Schedule1,
-                        schedule2:obj.course[i].Schedule2,                     
+                        schedule2:obj.course[i].Schedule2,
+                        courseId:obj.course[i].CourseID                     
                     } //end of obj
                     matchingdata.push(reply); //store the matching json data in the empty array      
                     console.log(JSON.stringify(matchingdata) + "is the matching data");    
@@ -97,7 +98,8 @@ app.get('/showCourseByName/:name',(req,res)=>{
                         tuition:obj.course[i].Tuition,
                         term:obj.course[i].Term,
                         schedule1:obj.course[i].Schedule1,
-                        schedule2:obj.course[i].Schedule2,                     
+                        schedule2:obj.course[i].Schedule2,
+                        courseId:obj.course[i].CourseID                      
                     } //end of obj
                     matchingdata.push(reply); //store the matching json data in the empty array      
                     console.log(JSON.stringify(matchingdata) + "is the matching data");    
@@ -177,3 +179,40 @@ app.post('/addnewCourse', (req, res) => {
        }
 
 });
+
+//Get register information
+app.get('/showRegistered/:courseId',(req,res)=>{
+    const file_location = './register.json';
+    if (fs.existsSync(file_location)) {
+        if(_.isEmpty(obj)) {
+            res.send("There is no course information try again")
+        }else{
+            var data = fs.readFileSync('register.json', 'utf8');
+            obj= JSON.parse(data);
+            var matchingdata={};//create empty obj to store multiple search results
+            var val = req.params.courseId;
+            matchingdata = [] //define the object to store array value
+                 for (var i = 0, l = obj.register.length; i < l; i++) {//loop through all json data that exists inside obj
+                    var myobj = obj.register[i].CourseID; //extract name of each object from the json data                   
+                    if(val === myobj){ //check if the user param is matching with the json data
+                       let reply={//If matching data found, store it's detail as object
+                        studentId:obj.register[i].StudentID,
+                        courseId:req.params.courseId                      
+                    } //end of obj
+                    matchingdata.push(reply); //store the matching json data in the empty array      
+                    console.log(JSON.stringify(matchingdata) + "is the matching data");    
+                }//end of if 
+                }//end of for loop 
+                var rese={
+                    success:true,
+                    code:200,
+                    profile:matchingdata
+                };                
+                res.send(matchingdata);//end of res.send
+        }//end of else statement
+    //}//end of if statement
+    }else{
+    var rese={success:false,code:404, data:"No matching data found"};                
+    res.send(rese);
+    }
+})
